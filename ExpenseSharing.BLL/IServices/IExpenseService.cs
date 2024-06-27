@@ -11,15 +11,11 @@ namespace ExpenseSharingApp.BLL.IServices
 {
     public interface IExpenseService
     {
-        //Task<ExpenseEF> GetExpenseAsync(int id);
-        //Task<ExpenseEF> CreateExpenseAsync(CreateExpenseDto expense);
-        //Task<IEnumerable<ExpenseEF>> GetExpensesByGroupIdAsync(int groupId);
-        //Task SettleExpenseAsync(int expenseId, int settledByUserId);
-
-
+      
         Task<ExpenseEF> CreateExpenseAsync(CreateExpenseDto expenseDto);
         Task<ExpenseEF> GetExpenseAsync(int id);
         Task<IEnumerable<ExpenseEF>> GetExpensesByGroupIdAsync(int groupId);
         Task SettleExpenseAsync(int expenseId, SettleExpenseRequest request);
+        Task<IEnumerable<ExpenseSettlementEF>> GetExpenseSettlementsByExpenseIdAsync(int expenseId);
     }
 }

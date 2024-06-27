@@ -24,16 +24,7 @@ namespace ExpenseSharingApp.BLL.Services
             _authenticationRepository = authenticationRepository;
 
         }
-        //public async Task<UserEF> Authenticate(string email, string password)
-        //{
-        //    // Business logic for authentication, validation, etc.
-        //    return await _authenticationRepository.Authenticate(email, password);
-        //}
-        //public async Task RegisterUser(UserEF user)
-        //{
-        //    // Business logic for user registration, validation, etc.
-        //    await _authenticationRepository.RegisterUser(user);
-        //}
+       
 
         public async Task<UserResponseDto> Authenticate(string email, string password)
         {

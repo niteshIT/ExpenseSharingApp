@@ -20,84 +20,7 @@ namespace ExpenseSharingApp.DAL.Repository
             _context = context;
         }
 
-        //public async Task<ExpenseEF> GetExpenseAsync(int id)
-        //{
-        //    return await _context.Expenses
-        //        .Include(e => e.SplitAmong)
-        //        .FirstOrDefaultAsync(e => e.Id == id);
-        //}
-
-        //public async Task<ExpenseEF> CreateExpenseAsync(CreateExpenseDto expenseDto)
-        //{
-        //    var expense = new ExpenseEF
-        //    {
-        //        GroupId = expenseDto.GroupId,
-        //        Description = expenseDto.Description,
-        //        Amount = expenseDto.Amount,
-        //        PaidBy = expenseDto.PaidBy,
-        //        Date = DateTime.UtcNow,
-        //        SplitAmong = expenseDto.SplitAmong.Select(s => new ExpenseSplitEF
-        //        {
-        //            UserId = s.UserId,
-        //            Amount = s.Amount,
-        //            UserName=s.UserName
-        //        }).ToList()
-        //    };
-
-        //    _context.Expenses.Add(expense);
-        //    await _context.SaveChangesAsync();
-
-        //    var expenseForBalance = await _context.Expenses
-        //         .Include(e => e.SplitAmong)  // Ensure SplitAmong collection is loaded
-        //         .FirstOrDefaultAsync(e => e.Id == expense.Id);
-
-        //    if (expenseForBalance == null || expenseForBalance.SplitAmong == null || expenseForBalance.SplitAmong.Count == 0)
-        //    {
-        //        throw new Exception("Expense or SplitAmong data is missing or invalid.");
-        //    }
-
-        //    var amountPerUser = expenseForBalance.Amount / expenseForBalance.SplitAmong.Count;
-        //    bool isPaidUserinSplit = false;
-        //    // Example: iterate through SplitAmong and update balances
-        //    foreach (var split in expenseForBalance.SplitAmong)
-        //    {
-        //        var user = await _context.Users.FindAsync(split.UserId);
-        //        if (user != null)
-        //        {
-        //            // Adjust user balance
-        //            user.Balance += amountPerUser;
-
-        //            // Optionally, adjust for the person who paid
-        //            if (expenseForBalance.PaidBy == user.Id)
-        //            {
-        //                isPaidUserinSplit = true;
-        //                user.Balance -= expenseForBalance.Amount; // Subtract total amount from the payer
-        //            }
-        //        }
-        //    }
-        //    if (!isPaidUserinSplit)
-        //    {
-        //        var user = await _context.Users.FindAsync(expense.PaidBy);
-        //        if (user != null)
-        //        {
-        //            user.Balance -= expenseForBalance.Amount;
-        //        }
-
-        //    }
-
-        //    // Save changes to the database
-        //    await _context.SaveChangesAsync();
-
-
-        //    return expense;
-        //}
-        //public async Task<IEnumerable<ExpenseEF>> GetExpensesByGroupIdAsync(int groupId)
-        //{
-        //    return await _context.Expenses
-        //                         .Where(e => e.GroupId == groupId)
-        //                         .ToListAsync();
-        //}
-
+       
         public async Task<ExpenseEF> CreateExpenseAsync(CreateExpenseDto expenseDto)
         {
             var expense = new ExpenseEF
@@ -208,6 +131,13 @@ namespace ExpenseSharingApp.DAL.Repository
 
             _context.ExpenseSettlements.Add(settlement);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<ExpenseSettlementEF>> GetExpenseSettlementsByExpenseIdAsync(int expenseId)
+        {
+            return await _context.ExpenseSettlements
+                .Where(es => es.ExpenseId == expenseId)
+                .ToListAsync();
         }
     }
 }

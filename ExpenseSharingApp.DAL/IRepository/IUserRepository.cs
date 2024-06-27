@@ -11,5 +11,6 @@ namespace ExpenseSharingApp.DAL.IRepository
     {
         Task<UserEF> GetUser(int userId);
         Task<IEnumerable<UserEF>> GetAllUsers();
+        Task<IEnumerable<UserEF>> GetUsersByGroupIdAsync(int groupId);
     }
 }

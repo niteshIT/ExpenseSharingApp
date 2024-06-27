@@ -18,63 +18,15 @@ namespace ExpenseSharingApp.DAL.Repository
         {
             _context = context;
         }
-        //public async Task<List<GroupEF>> GetGroupsByUserId(int userId)
-        //{
-        //    var groups = await _context.UserGroups
-        //        .Where(gu => gu.UserId == userId)
-        //        .Select(gu => gu.Group)
-        //        .ToListAsync();
+        public async Task<List<GroupEF>> GetGroupsByUserId(int userId)
+        {
+            var groups = await _context.UserGroups
+                .Where(gu => gu.UserId == userId)
+                .Select(gu => gu.Group)
+                .ToListAsync();
 
-        //    return groups;
-        //}
-        //public async Task<GroupEF> CreateGroupAsync(GroupEF group)
-        //{
-        //    _context.Groups.Add(group);
-        //    await _context.SaveChangesAsync();
-        //    return group;
-        //}
-
-        //public async Task<GroupEF> GetGroupByIdAsync(int id)
-        //{
-        //    return await _context.Groups
-        //        .Include(g => g.Members)
-        //        .ThenInclude(ug => ug.User)
-        //        .FirstOrDefaultAsync(g => g.Id == id);
-        //}
-
-
-
-        //public async Task<IEnumerable<GroupEF>> GetAllGroupsAsync()
-        //{
-        //    return await _context.Groups
-        //        .Include(g => g.Members)
-        //        .ThenInclude(ug => ug.User)
-        //        .ToListAsync();
-        //}
-
-        //public async Task<bool> AddMemberAsync(UserGroupEF userGroup)
-        //{
-        //    _context.UserGroups.Add(userGroup);
-        //    return await _context.SaveChangesAsync() > 0;
-        //}
-
-        //public async Task<GroupEF> UpdateGroupAsync(GroupEF group)
-        //{
-        //    _context.Groups.Update(group);
-        //    await _context.SaveChangesAsync();
-        //    return group;
-        //}
-
-        //public async Task DeleteGroupAsync(int id)
-        //{
-        //    var group = await _context.Groups.FindAsync(id);
-        //    if (group != null)
-        //    {
-        //        _context.Groups.Remove(group);
-        //        await _context.SaveChangesAsync();
-        //    }
-        //}
-
+            return groups;
+        }
         public async Task<GroupEF> CreateGroupAsync(GroupEF group)
         {
             _context.Groups.Add(group);
@@ -90,13 +42,7 @@ namespace ExpenseSharingApp.DAL.Repository
                 .FirstOrDefaultAsync(g => g.Id == id);
         }
 
-        public async Task<List<GroupEF>> GetGroupsByUserIdAsync(int userId)
-        {
-            return await _context.UserGroups
-                .Where(ug => ug.UserId == userId)
-                .Select(ug => ug.Group)
-                .ToListAsync();
-        }
+
 
         public async Task<IEnumerable<GroupEF>> GetAllGroupsAsync()
         {
@@ -106,18 +52,7 @@ namespace ExpenseSharingApp.DAL.Repository
                 .ToListAsync();
         }
 
-        public async Task<bool> AddMemberAsync(UserGroupEF userGroup)
-        {
-            _context.UserGroups.Add(userGroup);
-            return await _context.SaveChangesAsync() > 0;
-        }
-
-        public async Task<GroupEF> UpdateGroupAsync(GroupEF group)
-        {
-            _context.Groups.Update(group);
-            await _context.SaveChangesAsync();
-            return group;
-        }
+        
 
         public async Task DeleteGroupAsync(int id)
         {
@@ -128,5 +63,7 @@ namespace ExpenseSharingApp.DAL.Repository
                 await _context.SaveChangesAsync();
             }
         }
+
+        
     }
 }

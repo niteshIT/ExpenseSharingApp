@@ -23,24 +23,7 @@ namespace ExpenseSharingApp.BLL.Services
             
         }
 
-        //public Task<ExpenseEF> CreateExpenseAsync(CreateExpenseDto expense)
-        //{
-        //    var res= _expenseRepository.CreateExpenseAsync(expense);
-        //    return res;
-        //}
-
-        //public Task<ExpenseEF> GetExpenseAsync(int id)
-        //{
-        //    var res= _expenseRepository.GetExpenseAsync(id);
-        //    return res;
-        //}
-        //public async Task<IEnumerable<ExpenseEF>> GetExpensesByGroupIdAsync(int groupId)
-        //{
-        //    var result = await _expenseRepository.GetExpensesByGroupIdAsync(groupId);
-        //    return result;
-        //}
-
-
+       
         public async Task<ExpenseEF> CreateExpenseAsync(CreateExpenseDto expenseDto)
         {
             return await _expenseRepository.CreateExpenseAsync(expenseDto);
@@ -59,6 +42,10 @@ namespace ExpenseSharingApp.BLL.Services
         public async Task SettleExpenseAsync(int expenseId, SettleExpenseRequest request)
         {
             await _expenseRepository.SettleExpenseAsync(expenseId, request.SettledByUserId);
+        }
+        public async Task<IEnumerable<ExpenseSettlementEF>> GetExpenseSettlementsByExpenseIdAsync(int expenseId)
+        {
+            return await _expenseRepository.GetExpenseSettlementsByExpenseIdAsync(expenseId);
         }
     }
 }

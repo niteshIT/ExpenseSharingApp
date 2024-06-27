@@ -11,9 +11,7 @@ namespace ExpenseSharingApp.BLL.IServices
 {
     public interface IAuthenticationServices
     {
-        //Task<UserEF> Authenticate(string email, string password);
-        //Task RegisterUser(UserEF user);
-
+        
         Task<UserResponseDto> Authenticate(string email, string password);
         Task RegisterUser(UserDto userDto);
     }

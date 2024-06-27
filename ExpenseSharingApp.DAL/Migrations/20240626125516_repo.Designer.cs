@@ -4,6 +4,7 @@ using ExpenseSharingApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpenseSharingApp.DAL.Migrations
 {
     [DbContext(typeof(ExpenseSharingContext))]
-    partial class ExpenseSharingContextModelSnapshot : ModelSnapshot
+    [Migration("20240626125516_repo")]
+    partial class repo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

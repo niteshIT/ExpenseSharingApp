@@ -15,18 +15,18 @@ namespace ExpenseSharingApp.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly ExpenseSharingContext _context;
+       
 
-        public UserController(IUserService userService, ExpenseSharingContext context)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _context = context;
+           
         }
 
         
 
         [HttpGet]
-        //[Authorize(Roles = "admin, user")]
+        [Authorize(Roles = "admin, user")]
         public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
             var allUsers = await _userService.GetAllUsers();
@@ -34,7 +34,7 @@ namespace ExpenseSharingApp.API.Controllers
         }
 
         [HttpGet("{userId}")]
-        //[Authorize(Roles = "admin, user")]
+        [Authorize(Roles = "admin, user")]
         public async Task<ActionResult<User>> GetUser(int userId)
         {
             var user = await _userService.GetUser(userId);
@@ -46,17 +46,15 @@ namespace ExpenseSharingApp.API.Controllers
 
             return Ok(user);
         }
+        
+
         [HttpGet("group/{groupId}")]
-        //[Authorize(Roles = "admin, user")]
+        [Authorize(Roles = "admin, user")]
         public async Task<ActionResult<IEnumerable<UserEF>>> GetUsersByGroupId(int groupId)
         {
-            var users = await _context.UserGroups
-                                      .Where(ug => ug.GroupId == groupId)
-                                      .Include(ug => ug.User)
-                                      .Select(ug => ug.User)
-                                      .ToListAsync();
+            var users = await _userService.GetUsersByGroupIdAsync(groupId);
 
-            if (users == null || users.Count == 0)
+            if (users == null || !users.Any())
             {
                 return NotFound();
             }

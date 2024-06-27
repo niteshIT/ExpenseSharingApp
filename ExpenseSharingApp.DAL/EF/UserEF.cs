@@ -17,7 +17,7 @@ namespace ExpenseSharingApp.DAL.EF
         [EmailAddress]
         public string? Email { get; set; }
 
-        public string? PasswordHash { get; set; }
+        public string? Password { get; set; }
 
         public string? Role { get; set; } = "user"; // Admin or Normal
 

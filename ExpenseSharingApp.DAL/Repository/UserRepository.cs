@@ -26,7 +26,14 @@ namespace ExpenseSharingApp.DAL.Repository
         {
             return await _appDbContext.Users.FindAsync(userId);
         }
+        public async Task<IEnumerable<UserEF>> GetUsersByGroupIdAsync(int groupId)
+        {
+            return await _appDbContext.UserGroups
+                                 .Where(ug => ug.GroupId == groupId)
+                                 .Include(ug => ug.User)
+                                 .Select(ug => ug.User)
+                                 .ToListAsync();
+        }
 
-       
     }
 }

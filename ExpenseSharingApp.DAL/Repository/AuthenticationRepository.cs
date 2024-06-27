@@ -21,16 +21,7 @@ namespace ExpenseSharingApp.DAL.Repository
             _context = appDbContext;
         }
 
-        //public async Task<UserEF> Authenticate(string email, string password)
-        //{
-        //    return await _appDbContext.Users.FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == password);
-        //}
-
-        //public async Task RegisterUser(UserEF user)
-        //{
-        //    await _appDbContext.Users.AddAsync(user);
-        //    await _appDbContext.SaveChangesAsync();
-        //}
+  
         public async Task<UserEF> Authenticate(string email, string password)
         {
             var user = await _context.Users.SingleOrDefaultAsync(u => u.Email == email);
@@ -39,7 +30,7 @@ namespace ExpenseSharingApp.DAL.Repository
                 return null;
 
             // Verify password hash
-            if (password!= user.PasswordHash)
+            if (password!= user.Password)
                 return null;
 
             return user;
@@ -51,7 +42,7 @@ namespace ExpenseSharingApp.DAL.Repository
             {
                 UserName = userDto.UserName,
                 Email = userDto.Email,
-                PasswordHash =userDto.Password,
+                Password =userDto.Password,
                 
             };
 

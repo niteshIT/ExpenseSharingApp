@@ -10,8 +10,7 @@ namespace ExpenseSharingApp.DAL.IRepository
 {
     public interface IAuthenticationRepository
     {
-        //Task<UserEF> Authenticate(string email, string password);
-        //Task RegisterUser(UserEF user);
+      
         Task<UserEF> Authenticate(string email, string password);
         Task RegisterUser(UserDto userDto);
         Task<UserEF> GetUserByEmail(string email);

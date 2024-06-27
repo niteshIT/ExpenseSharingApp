@@ -29,5 +29,10 @@ namespace ExpenseSharingApp.BLL.Services
             // Additional business logic if needed
             return await _userRepository.GetAllUsers();
         }
+
+        public async Task<IEnumerable<UserEF>> GetUsersByGroupIdAsync(int groupId)
+        {
+            return await _userRepository.GetUsersByGroupIdAsync(groupId);
+        }
     }
 }

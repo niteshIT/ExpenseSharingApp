@@ -11,5 +11,6 @@ namespace ExpenseSharingApp.BLL.IServices
     {
         Task<UserEF> GetUser(int userId);
         Task<IEnumerable<UserEF>> GetAllUsers();
+        Task<IEnumerable<UserEF>> GetUsersByGroupIdAsync(int groupId);
     }
 }

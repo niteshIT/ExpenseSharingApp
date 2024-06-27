@@ -22,66 +22,7 @@ namespace ExpenseSharingApp.API.Controllers
         {
             _authenticationService = authenticationService;
         }
-        //[HttpPost("authenticate")]
-        //public async Task<IActionResult> Authenticate([FromBody] UserEF userObj)
-        //{
-        //    if (userObj == null)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    var user = await _authenticationService.Authenticate(userObj.Email, userObj.PasswordHash);
-
-        //    if (user == null)
-        //    {
-        //        return NotFound(new { message = "User Not Found" });
-        //    }
-
-        //    user.Token = CreateJwt(user);
-
-        //    return Ok(new
-        //    {
-        //        token = user.Token,
-        //        message = "Login successful!"
-        //    });
-        //}
-
-        //[HttpPost("register")]
-        //public async Task<IActionResult> Register([FromBody] UserEF userObj)
-        //{
-        //    if (userObj == null)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    await _authenticationService.RegisterUser(userObj);
-
-        //    return Ok(new
-        //    {
-        //        Message = "User registered successfully."
-        //    });
-        //}
-        //private string CreateJwt(UserEF user)
-        //{
-        //    var jwtTokenHandler = new JwtSecurityTokenHandler();
-        //    var key = Encoding.ASCII.GetBytes("your_secret_key_here_ NEWBCIWVWQVCSDUCWFWQIUFCHaecscsdvasvhasd vhsadvbsksjb"); // Replace with your secret key
-        //    var identity = new ClaimsIdentity(new Claim[]
-        //    {
-        //    new Claim(ClaimTypes.Name, user.UserName),
-        //    new Claim(ClaimTypes.Role, user.Role),
-        //    new Claim("balance", user.Balance.ToString()),
-        //    new Claim("userid", user.Id.ToString())
-        //    });
-        //    var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
-        //    var tokenDescriptor = new SecurityTokenDescriptor
-        //    {
-        //        Subject = identity,
-        //        Expires = DateTime.Now.AddDays(1),
-        //        SigningCredentials = credentials
-        //    };
-        //    var token = jwtTokenHandler.CreateToken(tokenDescriptor);
-        //    return jwtTokenHandler.WriteToken(token);
-        //}
+       
 
         [HttpPost("authenticate")]
         public async Task<IActionResult> Authenticate([FromBody] UserDto userDto)

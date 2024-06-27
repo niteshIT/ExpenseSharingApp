@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace ExpenseSharingApp.DAL.EF
 {
@@ -21,7 +22,7 @@ namespace ExpenseSharingApp.DAL.EF
         
         public DateTime? CreatedDate { get; set; }
 
-        // Navigation properties
+     
         public ICollection<UserGroupEF>? Members { get; set; }
         public ICollection<ExpenseEF>? Expenses { get; set; }
     }
