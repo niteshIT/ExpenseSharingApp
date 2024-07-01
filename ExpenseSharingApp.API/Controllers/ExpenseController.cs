@@ -17,12 +17,12 @@ namespace ExpenseSharingApp.API.Controllers
     public class ExpenseController : ControllerBase
     {
         private readonly IExpenseService _expenseService;
-        readonly ExpenseSharingContext _context;
-        public ExpenseController(IExpenseService expenseService,ExpenseSharingContext context)
+        
+        public ExpenseController(IExpenseService expenseService)
         {
 
             _expenseService = expenseService;
-            _context = context;
+            
             
         }
         
@@ -75,18 +75,7 @@ namespace ExpenseSharingApp.API.Controllers
             return Ok();
         }
 
-        //[HttpGet("byExpenseId/{expenseId}")]
-        ////[Authorize(Roles = "admin, user")]
-        //public async Task<IActionResult> GetExpenseSettlementsByExpenseId(int expenseId)
-        //{
-        //    var expenseSettlements = await _expenseService.GetExpenseSettlementsByExpenseIdAsync(expenseId);
-        //    if (expenseSettlements == null || !expenseSettlements.Any())
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(expenseSettlements);
-        //}
+        
 
     }
 

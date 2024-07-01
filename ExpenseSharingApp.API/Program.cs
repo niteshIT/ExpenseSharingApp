@@ -33,6 +33,8 @@ builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IGroupRepository, GroupRepository>();
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddScoped<IExpenseSettlementService, ExpenseSettlementService>();
+builder.Services.AddScoped<IExpenseSettlementRepository, ExpenseSettlementRepository>();
 //builder.Services.AddAuthentication(x =>
 //{
 //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

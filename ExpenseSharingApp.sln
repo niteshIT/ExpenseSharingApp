@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSharingApp.API", "ExpenseSharingApp.API\ExpenseSharingApp.API.csproj", "{18E97870-D517-47B6-809C-6EBBF0BEBE24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseSharingApp.API", "ExpenseSharingApp.API\ExpenseSharingApp.API.csproj", "{18E97870-D517-47B6-809C-6EBBF0BEBE24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSharingApp.BLL", "ExpenseSharing.BLL\ExpenseSharingApp.BLL.csproj", "{B09BB713-AA88-48AD-B225-0BC4E2235AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseSharingApp.BLL", "ExpenseSharing.BLL\ExpenseSharingApp.BLL.csproj", "{B09BB713-AA88-48AD-B225-0BC4E2235AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSharingApp.DAL", "ExpenseSharingApp.DAL\ExpenseSharingApp.DAL.csproj", "{DFB7767C-8A73-4F30-9C7E-55E1F7D4E6F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseSharingApp.DAL", "ExpenseSharingApp.DAL\ExpenseSharingApp.DAL.csproj", "{DFB7767C-8A73-4F30-9C7E-55E1F7D4E6F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSharingApp.Infrastructure", "ExpenseSharingApp.Infrastructure\ExpenseSharingApp.Infrastructure.csproj", "{1E9B70F0-65BF-463A-B05C-ABDED9251ABA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseSharingApp.Infrastructure", "ExpenseSharingApp.Infrastructure\ExpenseSharingApp.Infrastructure.csproj", "{1E9B70F0-65BF-463A-B05C-ABDED9251ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSharingApp.Common", "ExpenseSharingApp.Common\ExpenseSharingApp.Common.csproj", "{CF193F88-4635-4BAC-8CCC-DAE6624E6F7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseSharingApp.Common", "ExpenseSharingApp.Common\ExpenseSharingApp.Common.csproj", "{CF193F88-4635-4BAC-8CCC-DAE6624E6F7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSharingApp.Tests", "ExpenseSharingApp.Tests\ExpenseSharingApp.Tests.csproj", "{B2EE44F1-A7A7-4D62-9A08-F70DE1666392}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSharingApp.Tests", "ExpenseSharingApp.Tests\ExpenseSharingApp.Tests.csproj", "{F0C81DE5-2991-4BF4-9C6F-FA84198112F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{CF193F88-4635-4BAC-8CCC-DAE6624E6F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF193F88-4635-4BAC-8CCC-DAE6624E6F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF193F88-4635-4BAC-8CCC-DAE6624E6F7B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2EE44F1-A7A7-4D62-9A08-F70DE1666392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2EE44F1-A7A7-4D62-9A08-F70DE1666392}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2EE44F1-A7A7-4D62-9A08-F70DE1666392}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2EE44F1-A7A7-4D62-9A08-F70DE1666392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0C81DE5-2991-4BF4-9C6F-FA84198112F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0C81DE5-2991-4BF4-9C6F-FA84198112F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0C81DE5-2991-4BF4-9C6F-FA84198112F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0C81DE5-2991-4BF4-9C6F-FA84198112F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

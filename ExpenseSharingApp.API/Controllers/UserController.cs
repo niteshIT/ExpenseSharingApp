@@ -27,7 +27,7 @@ namespace ExpenseSharingApp.API.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin, user")]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        public async Task<ActionResult<IEnumerable<UserEF>>> GetAllUsers()
         {
             var allUsers = await _userService.GetAllUsers();
             return Ok(allUsers);
@@ -35,13 +35,13 @@ namespace ExpenseSharingApp.API.Controllers
 
         [HttpGet("{userId}")]
         [Authorize(Roles = "admin, user")]
-        public async Task<ActionResult<User>> GetUser(int userId)
+        public async Task<ActionResult<UserEF>> GetUser(int userId)
         {
             var user = await _userService.GetUser(userId);
 
             if (user == null)
             {
-                return NotFound(new { message = "User not found." });
+                return NotFound( "User not found." );
             }
 
             return Ok(user);

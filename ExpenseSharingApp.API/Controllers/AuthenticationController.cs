@@ -36,15 +36,17 @@ namespace ExpenseSharingApp.API.Controllers
 
             if (userResponseDto == null)
             {
-                return NotFound(new { message = "User Not Found" });
+                return NotFound("User Not Found" );
             }
 
-            return Ok(new
-            {
-                token = userResponseDto.Token,
-                message = "Login successful!",
-                user = userResponseDto
-            });
+            //return Ok(new
+            //{
+            //    token = userResponseDto.Token,
+            //    message = "Login successful!",
+            //    user = userResponseDto
+            //});
+            return Ok( userResponseDto
+            );
         }
 
         [HttpPost("register")]
@@ -57,10 +59,8 @@ namespace ExpenseSharingApp.API.Controllers
 
             await _authenticationService.RegisterUser(userDto);
 
-            return Ok(new
-            {
-                Message = "User registered successfully."
-            });
+            return Ok("User registered successfully."
+            );
         }
     }
 }

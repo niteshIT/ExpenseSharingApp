@@ -13,6 +13,6 @@ namespace ExpenseSharingApp.DAL.IRepository
       
         Task<UserEF> Authenticate(string email, string password);
         Task RegisterUser(UserDto userDto);
-        Task<UserEF> GetUserByEmail(string email);
+        //Task<UserEF> GetUserByEmail(string email);
     }
 }

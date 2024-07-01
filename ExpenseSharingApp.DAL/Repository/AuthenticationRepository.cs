@@ -50,10 +50,10 @@ namespace ExpenseSharingApp.DAL.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<UserEF> GetUserByEmail(string email)
-        {
-            return await _context.Users.SingleOrDefaultAsync(u => u.Email == email);
-        }
+        //public async Task<UserEF> GetUserByEmail(string email)
+        //{
+        //    return await _context.Users.SingleOrDefaultAsync(u => u.Email == email);
+        //}
 
         // Helper methods for hashing and verifying passwords
        
